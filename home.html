@@ -1,0 +1,39 @@
+
+
+{% extends 'base.html' %}
+
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Holy Ghost</title>
+     <style>
+        body {
+            font-size: 18px;
+        }
+
+        footer {
+            position: absolute;
+            bottom: 0;
+            width: 90%;
+            text-align: center;
+            background-color: #1aaf4c;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome Holy Ghost Homepage</h1>
+    
+    <br>
+    
+    <div id="footer">
+        <footer>
+            <p>&copy; {{ current_year }} Blessings Church. All rights reserved.</p>
+        </footer>
+    </div>
+    
+</body>
+</html>
+
+{% endblock %}

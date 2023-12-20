@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Create a New Member</h2>
+  <style>
+    /* Add some basic styles for the form */
+    .post-form {
+      max-width: 400px;
+      margin-top: 20px;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 8px 16px;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.42857143;
+      text-align: center;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      user-select: none;
+      background-image: none;
+      border: 1px solid transparent;
+      border-radius: 4px;
+    }
+
+    .btn-primary {
+      color: #fff;
+      background-color: #007bff;
+      border-color: #007bff;
+    }
+
+    .btn-secondary {
+      color: #333;
+      background-color: #e2e2e2;
+      border-color: #ccc;
+    }
+
+    .btn:hover {
+      text-decoration: none;
+    }
+
+    .btn-primary:hover {
+      background-color: #0056b3;
+      border-color: #0056b3;
+    }
+
+    .btn-secondary:hover {
+      background-color: #d4d4d4;
+      border-color: #adadad;
+    }
+  </style>
+  <form method="post" class="post-form">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Create Member</button>
+  </form>
+  <br>
+  <a href="{% url 'church_app:member_list' %}" class="btn btn-secondary">Back to Member List</a>
+
+ 
+{% endblock %}

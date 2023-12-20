@@ -1,0 +1,63 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="{% url 'church_app:home' %}">Holy Ghost</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          
+          {% if user.is_authenticated %}
+          
+          <li class="nav-item">
+            <a class="nav-link" href="{%  url 'church_app:logout' %}">Logout</a>
+          </li>
+
+          {% if user.is_staff %}
+          <!--HOME-->
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'church_app:staff_dashboard' %}">Home</a>
+          </li>
+          <!--MEMBERS-->
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'church_app:member_list' %}">Members</a>
+          </li>
+          <!--EVENTS-->
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'church_app:event_list' %}">Events</a>
+          </li>
+          <!-- DONATION -->
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'church_app:donation_list' %}">Donation</a>
+          </li>
+          <!-- COMMUNICATION -->
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'church_app:message_list' %}">Communication</a>
+          </li>
+          {% else %}
+          <!--HOME-->
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'church_app:member_dashboard' %}">Home</a>
+          </li>
+          <!--PROFILE-->
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'church_app:profile_view' %}">Profile</a>
+          </li>
+          {% endif %}
+  
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'church_app:register' %}">Register</a>
+          </li>
+          
+          <li class="nav-item">
+            <a class="nav-link" href="{%  url 'church_app:login' %}">Login</a>
+          </li>        
+          {% endif %}
+          
+          
+        </ul>
+        
+      </div>
+    </div>
+  </nav>

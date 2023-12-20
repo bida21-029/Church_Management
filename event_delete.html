@@ -1,0 +1,12 @@
+<!-- templates/church_app/event_delete.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Confirm Deletion</h2>
+  <p>Are you sure you want to delete "{{ event.name }}"?</p>
+  <form method="post" action="{% url 'church_app:event_delete' pk=event.pk %}">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Yes, delete</button>
+  </form>
+  <a href="{% url 'church_app:event_list' %}">Cancel</a>
+{% endblock %}

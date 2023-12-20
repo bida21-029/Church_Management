@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Welcome, {{ user.username }}!</h2>
+{% include 'church_app/upcoming_birthdays.html' %}
+{% include 'church_app/upcoming_events.html' %}
+{% include 'church_app/donation_history.html' %}
+
+
+
+
+
+{% endblock %}
+

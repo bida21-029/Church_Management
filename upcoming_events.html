@@ -1,0 +1,19 @@
+
+
+{% block content %}
+  <h2>Upcoming Events</h2>
+
+  {% if upcoming_events %}
+    <ul>
+      {% for event in upcoming_events %}
+        <li>
+          <strong>{{ event.title }}</strong><br>
+          <em>{{ event.date|date:"F d, Y" }} at {{ event.time|time:"g:i A" }}</em><br>
+          {{ event.description }}
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No upcoming events.</p>
+  {% endif %}
+{% endblock %}
